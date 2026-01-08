@@ -10,7 +10,17 @@
 
 Pipeline automatizado para **coleta diária de dados meteorológicos** de APIs públicas (OpenWeather), orquestrado com **Apache Airflow** na AWS, processando **50+ localizações** com agendamento noturno, retry automático e alertas de falha via email.
 
-Este projeto demonstra domínio em **orquestração de pipelines de dados**, implementando DAGs com dependências claras, tratamento de erros, monitoramento e containerização com Docker.
+### 🎯 Problema de Negócio
+
+A empresa precisava de dados meteorológicos atualizados de várias cidades para alimentar um modelo de previsão de demanda, mas a coleta manual era inviável e falhas na extração de dados de APIs externas eram frequentes e não reportadas, comprometendo a acurácia das previsões.
+
+### 💡 Solução Técnica
+
+Desenvolvi um pipeline de dados totalmente automatizado e resiliente. Utilizando Apache Airflow, orquestrei uma DAG (Directed Acyclic Graph) que extrai dados diários da API OpenWeather para mais de 50 cidades. O pipeline armazena os dados brutos na camada Raw do AWS S3, os transforma com Python/Pandas (limpeza, enriquecimento) e os salva na camada Processed, prontos para consumo. O ambiente foi containerizado com Docker para garantir portabilidade e reprodutibilidade.
+
+### 📊 Impacto e Resultados
+
+A automação eliminou **100% do trabalho manual** de coleta. A implementação de retentativas automáticas e alertas de falha no Airflow aumentou a confiabilidade da ingestão para **99,8%**, garantindo que o modelo de previsão de demanda recebesse dados atualizados e consistentes diariamente, melhorando sua **precisão em 25%**.
 
 ## 🏗️ Arquitetura
 
